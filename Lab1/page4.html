@@ -1,0 +1,57 @@
+<!-- page4.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица товаров</title>
+    <style>
+        table {
+            border-collapse: collapse; /* Объединение рамок */
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd; /* Одиночные рамки */
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2; /* Фон заголовка таблицы */
+        }
+        td:nth-child(3) {
+            background-color: #c109fe; /* Фон третьего столбца */
+        }
+    </style>
+</head>
+<body>
+    <h1>График Выступлений</h1>
+    
+    <table>
+        <tr>
+            <th>Страны</th>
+            <th>Стоимость билета</th>
+            <th>Дата</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Польша</td>
+            <td>$10</td>
+            <td> 10-02-2024</td>
+        </tr>
+        <tr>
+            <td>$10</td>
+            <td style="background-color: #c109fe;">15-02-2024</td>
+        </tr>
+        <tr>
+            <td>Беларусь</td>
+            <td>$5</td>
+            <td>21-02-2024</td>
+        </tr>
+        <tr>
+            <td>Литва</td>
+            <td>$20</td>
+            <td>29-02-2024</td>
+        </tr>
+    </table>
+</body>
+</html>
