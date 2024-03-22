@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.cat-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  text-align: left;
+  width: 300px;
+  margin-top: 20px;
+}
