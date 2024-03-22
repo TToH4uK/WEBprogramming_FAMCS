@@ -1,28 +1,31 @@
-const hash = {};
+class THashStorage {
+  constructor() {
+    this.hash = {};
+  }
 
-function AddValue(key, value) {
-    hash[key] = value;
+  Reset() {
+    this.hash = {};
+  }
+
+  AddValue(key, value) {
+    this.hash[key] = value;
+  }
+
+  GetValue(key) {
+    return this.hash[key];
+  }
+
+  DeleteValue(key) {
+    delete this.hash[key];
+  }
+
+  GetKeys() {
+    return Object.keys(this.hash);
+  }
 }
-  
-function DeleteValue(key) {
-    delete hash[key];
-}
-  
-function GetValueInfo(key) {
-    if (hash.hasOwnProperty(key)) {
-      return hash[key];
-    } else {
-      return 'not found';
-    }
-}
-  
-function ListValues() {
-    let result = '';
-    for (let key in hash) {
-      result += key + ': ' + hash[key] + '\n';
-    }
-    return result;
-}
+
+
+const storage = new THashStorage();
 
 function addInformation() {
   var key = prompt("Enter the text:");
@@ -31,16 +34,15 @@ function addInformation() {
     console.log("Input data is empty. Try one more time.");
     return;
   }
-  AddValue(key, value);
+  storage.AddValue(key, value);
 }
 
 function deleteInformation() {
   var key = prompt("Enter the text:");
-  if (key in hash) {
-    DeleteValue(key);
+  if (storage.GetValue(key) !== undefined) {
+    storage.DeleteValue(key);
     return;
-  }
-  else {
+  } else {
     console.log("Not found.");
     return;
   }
@@ -48,20 +50,21 @@ function deleteInformation() {
 
 function getInformation() {
   var key = prompt("Enter the text:");
-  var info = GetValueInfo(key);
-  if (info === 'not found') {
-    console.log(info);
+  var info = storage.GetValue(key);
+  if (info === undefined) {
+    console.log("Not found.");
   } else {
     console.log("Review of " + key + ": " + info);
   }
 }
 
 function listAllInformation() {
-  var allInfo = ListValues();
-  if (allInfo === "") {
+  var keys = storage.GetKeys();
+  if (keys.length === 0) {
     console.log("No information available.");
   } else {
-    console.log(allInfo);
+    keys.forEach(key => {
+      console.log(key + ': ' + storage.GetValue(key));
+    });
   }
-}
-  
+} 
